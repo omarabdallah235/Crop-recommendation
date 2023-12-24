@@ -78,14 +78,14 @@ def main():
         # Display predicted crop with image and style
         st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
     if predicted_crop in crop_images:
-             image_path = crop_images[predicted_crop]
-             try:
-                 image = Image.open(image_path)
-                 st.image(image, caption=f'Predicted Crop: {predicted_crop}', width=35)
-             except Exception as e:
-                 st.warning(f"Error loading image: {e}")
+         image_path = crop_images[predicted_crop]
+         try:
+                   image = Image.open(image_path)
+                   st.image(image, caption=f'Predicted Crop: {predicted_crop}', width=35)
+         except Exception as e:
+                   st.warning(f"Error loading image: {e}")
      else:
-             st.warning('No image available for the predicted crop.')
+         st.warning('No image available for the predicted crop.')
 
 
 # Function for prediction logic
