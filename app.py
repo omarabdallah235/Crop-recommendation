@@ -14,16 +14,19 @@ response_scaler = requests.get(scaler1_path)
 scaler1 = pickle.loads(response_scaler.content)  # Use pickle.loads here
 
 # Custom CSS for background with an image
-page_bg_img = '''
-<style>
-body {
-background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-background-size: cover;
-}
-</style>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
+    }
+   .sidebar .sidebar-content {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
