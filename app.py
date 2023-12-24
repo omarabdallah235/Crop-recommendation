@@ -48,17 +48,16 @@ crop_images = {
     'coffee': 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg'
 }
 # Custom CSS for background with an image
-background_css = f"""
-    <style>
-        body {{
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg');  /* Replace with your image URL */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-    </style>
-"""
-st.markdown(background_css, unsafe_allow_html=True)
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 def main():
