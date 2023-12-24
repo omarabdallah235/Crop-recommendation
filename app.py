@@ -84,6 +84,17 @@ def main():
                   st.image(image_url, width=400)
          else:
                   st.warning('No image available for the predicted crop.')
+         background_css = f"""
+             <style>
+                 body {{
+                     background-image: url('https://example.com/your-background-image.jpg');  /* Replace with your image URL */
+                     background-size: cover;
+                     background-repeat: no-repeat;
+                     background-attachment: fixed;
+                 }}
+             </style>
+         """
+         st.markdown(background_css, unsafe_allow_html=True)
 
 
 # Function for prediction logic
@@ -96,17 +107,6 @@ def predict_crop(user_inputs):
     predicted_crop = crop_mapping.get(predicted_crop_num, 'Unknown Crop')
 
     return predicted_crop
-background_css = f"""
-    <style>
-        body {{
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg');  /* Replace with your local image file name */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-    </style>
-"""
-st.markdown(background_css, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
