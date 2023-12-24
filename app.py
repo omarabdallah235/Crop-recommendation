@@ -75,20 +75,16 @@ def main():
 
     # Button to trigger prediction
     if st.button("Predict"):
-        # Perform prediction using the user inputs
-        predicted_crop = predict_crop(user_inputs)
-        st.write(f"Predicted Crop: {predicted_crop}")
-        # Display predicted crop with image and style
-        st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
-        if predicted_crop in crop_images:
-             image_path = crop_images[predicted_crop]
-             try:
-                       image = Image.open(image_path)
-                       st.image(image, caption=f'Predicted Crop: {predicted_crop}', width=35)
-             except Exception as e:
-                       st.warning(f"Error loading image: {e}")
-        else:
-             st.warning('No image available for the predicted crop.')
+         # Perform prediction using the user inputs
+         predicted_crop = predict_crop(user_inputs)
+         st.write(f"Predicted Crop: {predicted_crop}")
+         # Display predicted crop with image and style
+         st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
+         if predicted_crop in crop_images:
+                  image_url = crop_images[predicted_crop]
+                  st.image(image_url, caption=f'Predicted Crop: {predicted_crop}', width=35)
+         else:
+                  st.warning('No image available for the predicted crop.')
 
 
 # Function for prediction logic
