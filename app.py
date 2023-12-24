@@ -1,15 +1,9 @@
 import streamlit as st
 import pickle
-import requests
 
 # Load the prediction model and scaler
-model_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'
-response_model = requests.get(model_path)
-model = pickle.loads(response_model.content)  # Use pickle.loads here
-
-scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20scale.pkl'
-response_scaler = requests.get(scaler1_path)
-scaler1 = pickle.loads(response_scaler.content)  # Use pickle.loads here
+model = pickle.load(open('Crop Recommendation Random Forst Model.pkl', 'rb'))
+scaler1 = pickle.load(open('Crop Recommendation scale.pkl', 'rb'))
 
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
@@ -19,37 +13,6 @@ names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
 num = [20, 11, 3, 9, 18, 13, 14, 2, 10, 19, 1, 12, 7, 21, 15, 0, 16,
        17, 4, 6, 8, 5]
 crop_mapping = dict(zip(num, names))
-
-def main():
-
-
-    st.title("Crop Recommendation App")
-    st.markdown("<h3 style='text-align: justify; font-size: 20px;'>Data-driven recommendations for achieving optimal nutrient and environmental conditions to improve crop yield.</h3>", unsafe_allow_html=True)
-
-    # Get user inputs
-    nitrogen = st.number_input("Nitrogen Level - ratio of Nitrogen content in soil", 0.0, 100.0, 50.0, 1.0)
-    phosphorus = st.number_input("Phosphorus Level - ratio of Phosphorous content in soil", 0.0, 100.0, 50.0, 1.0)
-    potassium = st.number_input("Potassium Level - ratio of Potassium content in soil", 0.0, 100.0, 50.0, 1.0)
-    temperature = st.number_input("Temperature- temperature in degree Celsius", 0.0, 100.0, 25.0, 1.0)
-    humidity = st.number_input("Humidity - relative humidity in % ", 0.0, 100.0, 50.0, 1.0)
-    ph = st.number_input("pH Level - ph value of the soil", 0.0, 14.0, 7.0, 0.1)
-    rainfall = st.number_input("Rainfall - rainfall in mm")
-
-    # Display user inputs
-    st.write("your Inputs:")
-    st.write(f"""
-             Nitrogen: {nitrogen}, Phosphorus: {phosphorus}, Potassium: {potassium}
-             Temperature: {temperature}, Humidity: {humidity},pH: {ph}" , Rainfall: {rainfall} 
-             """)
-
-    # Collect user inputs in a list
-    user_inputs = [nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]
-
-    # Button to trigger prediction
-    if st.button("Predict"):
-        # Perform prediction using the user inputs
-        predicted_crop = predict_crop(user_inputs)
-        st.write(f"Predicted Crop: {predicted_crop}")
 
 # Function for prediction logic
 def predict_crop(user_inputs):
@@ -61,6 +24,33 @@ def predict_crop(user_inputs):
     predicted_crop = crop_mapping.get(predicted_crop_num, 'Unknown Crop')
 
     return predicted_crop
+
+def main():
+    st.title("Crop Recommendation App")
+    st.markdown("<h3 style='text-align: justify; font-size: 20px;'>Data-driven recommendations for achieving optimal nutrient and environmental conditions to improve crop yield.</h3>", unsafe_allow_html=True)
+
+    # Get user inputs
+    # ... (your existing code for user inputs)
+
+    # Button to trigger prediction
+    if st.button("Predict"):
+        # Perform prediction using the user inputs
+        predicted_crop = predict_crop(user_inputs)
+
+        # Display predicted crop with image and style
+        st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
+        
+        # Add images/icons for each crop
+        crop_images = {
+            'rice': 'https://en.wikipedia.org/wiki/Rice#/media/File:20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg',
+            'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
+            # Add paths for other crops
+        }
+
+        if predicted_crop.lower() in crop_images:
+            st.image(crop_images[predicted_crop.lower()], caption=f"Image for {predicted_crop}", use_column_width=True)
+        else:
+            st.warning("Image not available for the predicted crop.")
 
 if __name__ == "__main__":
     main()
