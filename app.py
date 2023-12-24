@@ -1,7 +1,13 @@
 
+import pandas as pd
 import streamlit as st
 import pickle
-import pandas as pd
+from io import BytesIO
+
+# Load the prediction model and scaler
+model_path = 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'
+response_model = requests.get(model_path)
+model = pickle.load(BytesIO(response_model.content))
 
 # Load the prediction model and scaler
 model = pickle.load(open('Crop Recommendation Random Forst Model.pkl', 'rb'))
