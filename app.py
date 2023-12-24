@@ -13,6 +13,17 @@ scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/
 response_scaler = requests.get(scaler1_path)
 scaler1 = pickle.loads(response_scaler.content)  # Use pickle.loads here
 
+# Custom CSS for background with an image
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
@@ -47,17 +58,6 @@ crop_images = {
     'jute': 'https://upload.wikimedia.org/wikipedia/commons/8/84/Jute_-_Kolkata_2003-10-31_00538.JPG',
     'coffee': 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg'
 }
-# Custom CSS for background with an image
-page_bg_img = '''
-<style>
-body {
-background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-background-size: cover;
-}
-</style>
-'''
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 def main():
