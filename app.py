@@ -47,6 +47,18 @@ crop_images = {
     'jute': 'https://upload.wikimedia.org/wikipedia/commons/8/84/Jute_-_Kolkata_2003-10-31_00538.JPG',
     'coffee': 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg'
 }
+# Custom CSS for background with an image
+background_css = f"""
+    <style>
+        body {{
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg');  /* Replace with your image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+    </style>
+"""
+st.markdown(background_css, unsafe_allow_html=True)
 
 
 def main():
