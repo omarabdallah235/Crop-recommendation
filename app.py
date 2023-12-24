@@ -1,10 +1,29 @@
 
 import streamlit as st
 import pickle
-# Load the prediction model and scaler
-model = pickle.load(open('https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl', 'rb'))
-scaler1 = pickle.load(open('https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20scale.pkl', 'rb'))
+import requests
+from io import BytesIO
 
+# URLs of the raw model and scaler files on GitHub
+model_url = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'
+scaler_url = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20scale.pkl'
+
+# Download the model and scaler files
+response_model = requests.get(model_url)
+response_scaler = requests.get(scaler_url)
+
+# Load the model and scaler
+model = pickle.load(BytesIO(response_model.content))
+scaler1 = pickle.load(BytesIO(response_scaler.content))
+
+# Crop mapping
+names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
+         'mothbeans', 'mungbean', 'blackgram', 'lentil', 'pomegranate',
+         'banana', 'mango', 'grapes', 'watermelon', 'muskmelon', 'apple',
+         'orange', 'papaya', 'coconut', 'cotton', 'jute', 'coffee']
+num = [20, 11, 3, 9, 18, 13, 14, 2, 10, 19, 1, 12, 7, 21, 15, 0, 16,
+       17, 4, 6, 8, 5]
+crop_mapping = dict(zip(num, names))
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
          'mothbeans', 'mungbean', 'blackgram', 'lentil', 'pomegranate',
