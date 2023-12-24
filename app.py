@@ -49,6 +49,21 @@ def main():
         # Perform prediction using the user inputs
         predicted_crop = predict_crop(user_inputs)
         st.write(f"Predicted Crop: {predicted_crop}")
+        # Display predicted crop with image and style
+        st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
+        
+        # Add images/icons for each crop
+        crop_images = {
+            'rice': 'path/to/rice_image.png',
+            'maize': 'path/to/maize_image.png',
+            # Add paths for other crops
+        }
+
+        if predicted_crop.lower() in crop_images:
+            st.image(crop_images[predicted_crop.lower()], caption=f"Image for {predicted_crop}", use_column_width=True)
+        else:
+            st.warning("Image not available for the predicted crop.")
+
 
 # Function for prediction logic
 def predict_crop(user_inputs):
