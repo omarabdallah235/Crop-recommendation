@@ -96,11 +96,11 @@ def predict_crop(user_inputs):
     predicted_crop = crop_mapping.get(predicted_crop_num, 'Unknown Crop')
 
     return predicted_crop
-background_css = f"""
+background_css = """
     <style>
-        body {{
-            background-image: url('https://raw.githubusercontent.com/omarabdallah235/Crop-recommendation/main/1280px-YellowCorn.jpg');  /* Replace with your image URL */
-        }}
+        body {
+            background-color: red;
+        }
     </style>
 """
 st.markdown(background_css, unsafe_allow_html=True)
