@@ -1,6 +1,10 @@
 
 import streamlit as st
 import pickle
+# Install dependencies
+st.run("""
+   pip install -r requirements.txt
+""")
 # Load the prediction model and scaler
 model = pickle.load(open('https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl', 'rb'))
 scaler1 = pickle.load(open('https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20scale.pkl', 'rb'))
