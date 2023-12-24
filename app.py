@@ -21,29 +21,6 @@ num = [20, 11, 3, 9, 18, 13, 14, 2, 10, 19, 1, 12, 7, 21, 15, 0, 16,
        17, 4, 6, 8, 5]
 crop_mapping = dict(zip(num, names))
 
-def main():
-    st.title("Crop Recommendation App")
-    st.markdown("<h3 style='text-align: justify; font-size: 20px;'>Data-driven recommendations for achieving optimal nutrient and environmental conditions to improve crop yield.</h3>", unsafe_allow_html=True)
-
-    # Get user inputs
-    nitrogen = st.number_input("Nitrogen Level - ratio of Nitrogen content in soil", 0.0, 100.0, 50.0, 1.0)
-    phosphorus = st.number_input("Phosphorus Level - ratio of Phosphorous content in soil", 0.0, 100.0, 50.0, 1.0)
-    potassium = st.number_input("Potassium Level - ratio of Potassium content in soil", 0.0, 100.0, 50.0, 1.0)
-    temperature = st.number_input("Temperature- temperature in degree Celsius", 0.0, 100.0, 25.0, 1.0)
-    humidity = st.number_input("Humidity - relative humidity in % ", 0.0, 100.0, 50.0, 1.0)
-    ph = st.number_input("pH Level - ph value of the soil", 0.0, 14.0, 7.0, 0.1)
-    rainfall = st.number_input("Rainfall - rainfall in mm")
-
-    # Display user inputs
-    st.write("Your Inputs:")
-    st.write(f"""
-             Nitrogen: {nitrogen}, Phosphorus: {phosphorus}, Potassium: {potassium}
-             Temperature: {temperature}, Humidity: {humidity}, pH: {ph}, Rainfall: {rainfall} 
-             """)
-
-    # Collect user inputs in a list
-    user_inputs = [nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]
-        # Add images/icons for each crop
 crop_images = {
     'rice': 'path/to/rice_image.png',
     'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
@@ -68,6 +45,30 @@ crop_images = {
     'jute': 'path/to/jute_image.png',
     'coffee': 'path/to/coffee_image.png'
 }
+
+def main():
+    st.title("Crop Recommendation App")
+    st.markdown("<h3 style='text-align: justify; font-size: 20px;'>Data-driven recommendations for achieving optimal nutrient and environmental conditions to improve crop yield.</h3>", unsafe_allow_html=True)
+
+    # Get user inputs
+    nitrogen = st.number_input("Nitrogen Level - ratio of Nitrogen content in soil", 0.0, 100.0, 50.0, 1.0)
+    phosphorus = st.number_input("Phosphorus Level - ratio of Phosphorous content in soil", 0.0, 100.0, 50.0, 1.0)
+    potassium = st.number_input("Potassium Level - ratio of Potassium content in soil", 0.0, 100.0, 50.0, 1.0)
+    temperature = st.number_input("Temperature- temperature in degree Celsius", 0.0, 100.0, 25.0, 1.0)
+    humidity = st.number_input("Humidity - relative humidity in % ", 0.0, 100.0, 50.0, 1.0)
+    ph = st.number_input("pH Level - ph value of the soil", 0.0, 14.0, 7.0, 0.1)
+    rainfall = st.number_input("Rainfall - rainfall in mm")
+
+    # Display user inputs
+    st.write("Your Inputs:")
+    st.write(f"""
+             Nitrogen: {nitrogen}, Phosphorus: {phosphorus}, Potassium: {potassium}
+             Temperature: {temperature}, Humidity: {humidity}, pH: {ph}, Rainfall: {rainfall} 
+             """)
+
+    # Collect user inputs in a list
+    user_inputs = [nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall]
+        # Add images/icons for each crop
 
     # Button to trigger prediction
     if st.button("Predict"):
