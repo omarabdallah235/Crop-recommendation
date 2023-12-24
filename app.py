@@ -25,7 +25,7 @@ crop_mapping = dict(zip(num, names))
 
 crop_images = {
     'rice': 'path/to/rice_image.png',
-    'maize': 'https://raw.githubusercontent.com/omarabdallah235/Crop-recommendation/main/1280px-YellowCorn.jpg',
+    'maize': 'https://upload.wikimedia.org/wikipedia/commons/0/05/YellowCorn.jpg',
     'chickpea': 'path/to/chickpea_image.png',
     'kidneybeans': 'path/to/kidneybeans_image.png',
     'pigeonpeas': 'path/to/pigeonpeas_image.png',
@@ -82,7 +82,7 @@ def main():
          st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
          if predicted_crop in crop_images:
                   image_url = crop_images[predicted_crop]
-                  st.image(image_url, caption=f'Predicted Crop: {predicted_crop}', width=35)
+                  st.image(image_url, width=400)
          else:
                   st.warning('No image available for the predicted crop.')
 
