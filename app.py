@@ -53,7 +53,7 @@ def main():
         st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
         
         # Add images/icons for each crop
-         crop_images = {
+        crop_images = {
              'rice': 'path/to/rice_image.png',
              'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
              'chickpea': 'path/to/chickpea_image.png',
