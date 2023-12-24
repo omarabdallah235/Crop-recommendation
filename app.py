@@ -4,11 +4,11 @@ import requests
 from io import BytesIO
 
 # Load the prediction model and scaler
-model_path = 'https://example.com/path/to/your/model.pkl'  # Replace with your actual model URL
+model_path = 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'  # Replace with your actual model URL
 response_model = requests.get(model_path)
 model = pickle.load(BytesIO(response_model.content))
 
-scaler1_path = 'https://example.com/path/to/your/Crop%20Recommendation%20scale.pkl'  # Replace with your actual scaler URL
+scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20scale.pkl'  # Replace with your actual scaler URL
 response_scaler = requests.get(scaler1_path)
 scaler1 = pickle.load(BytesIO(response_scaler.content))
 # Crop mapping
