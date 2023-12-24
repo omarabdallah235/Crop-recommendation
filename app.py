@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import requests
+from PIL import Image
+
 
 # Load the prediction model and scaler
 model_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'
