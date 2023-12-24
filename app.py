@@ -24,28 +24,28 @@ num = [20, 11, 3, 9, 18, 13, 14, 2, 10, 19, 1, 12, 7, 21, 15, 0, 16,
 crop_mapping = dict(zip(num, names))
 
 crop_images = {
-    'rice': 'path/to/rice_image.png',
+    'rice': 'https://upload.wikimedia.org/wikipedia/commons/0/0a/20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg',
     'maize': 'https://upload.wikimedia.org/wikipedia/commons/0/05/YellowCorn.jpg',
-    'chickpea': 'path/to/chickpea_image.png',
-    'kidneybeans': 'path/to/kidneybeans_image.png',
-    'pigeonpeas': 'path/to/pigeonpeas_image.png',
-    'mothbeans': 'path/to/mothbeans_image.png',
-    'mungbean': 'path/to/mungbean_image.png',
-    'blackgram': 'path/to/blackgram_image.png',
-    'lentil': 'path/to/lentil_image.png',
-    'pomegranate': 'path/to/pomegranate_image.png',
-    'banana': 'path/to/banana_image.png',
-    'mango': 'path/to/mango_image.png',
-    'grapes': 'path/to/grapes_image.png',
-    'watermelon': 'path/to/watermelon_image.png',
-    'muskmelon': 'path/to/muskmelon_image.png',
-    'apple': 'path/to/apple_image.png',
-    'orange': 'path/to/orange_image.png',
-    'papaya': 'path/to/papaya_image.png',
-    'coconut': 'path/to/coconut_image.png',
-    'cotton': 'path/to/cotton_image.png',
-    'jute': 'path/to/jute_image.png',
-    'coffee': 'path/to/coffee_image.png'
+    'chickpea': 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Sa-whitegreen-chickpea.jpg',
+    'kidneybeans': 'https://upload.wikimedia.org/wikipedia/commons/2/27/Red_Rajma_BNC.jpg',
+    'pigeonpeas': 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Cap-Vert-Pois_secs.jpg',
+    'mothbeans': 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Matki.JPG',
+    'mungbean': 'https://upload.wikimedia.org/wikipedia/commons/8/86/Mung_beans_%28Vigna_radiata%29.jpg',
+    'blackgram': 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Black_gram.jpg',
+    'lentil': 'https://upload.wikimedia.org/wikipedia/commons/f/f5/3_types_of_lentil.png',
+    'pomegranate': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Pomegranate_Juice_%282019%29.jpg',
+    'banana': 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Banana_and_cross_section.jpg',
+    'mango': 'https://upload.wikimedia.org/wikipedia/commons/7/74/Mangos_-_single_and_halved.jpg',
+    'grapes': 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Abhar-iran.JPG',
+    'watermelon': 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Watermelon_cross_BNC.jpg',
+    'muskmelon': 'https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2021/05/18150019/shutterstock_1376235665-1-768x512.jpg',
+    'apple': 'https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg',
+    'orange': 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Oranges_-_whole-halved-segment.jpg',
+    'papaya': 'https://upload.wikimedia.org/wikipedia/commons/0/09/Papaya_-_longitudinal_section.jpg',
+    'coconut': 'https://s3.eu-west-1.amazonaws.com/assets.saps.org.uk/content/uploads/2022/06/Coconut_istock.jpg',
+    'cotton': 'https://upload.wikimedia.org/wikipedia/commons/6/68/CottonPlant.JPG',
+    'jute': 'https://upload.wikimedia.org/wikipedia/commons/8/84/Jute_-_Kolkata_2003-10-31_00538.JPG',
+    'coffee': 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg'
 }
 
 
@@ -77,7 +77,6 @@ def main():
     if st.button("Predict"):
          # Perform prediction using the user inputs
          predicted_crop = predict_crop(user_inputs)
-         st.write(f"Predicted Crop: {predicted_crop}")
          # Display predicted crop with image and style
          st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
          if predicted_crop in crop_images:
