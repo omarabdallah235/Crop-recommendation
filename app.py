@@ -1,15 +1,14 @@
 import streamlit as st
 import pickle
-import requests  # Import requests library for fetching the model
+import requests  # Add this import statement
 
 # Load the prediction model and scaler
-model_path = 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'  # Replace with your actual model URL
+model_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20Random%20Forst%20Model.pkl'
 response_model = requests.get(model_path)
-model = pickle.loads(response_model.content)  # Use pickle.loads here
-
-scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/Crop%20Recommendation%20scale.pkl'  # Replace with your actual scaler URL
+model = pickle.load(response_model.content)
+scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/Crop%20Recommendation%20scale.pkl'
 response_scaler = requests.get(scaler1_path)
-scaler1 = pickle.loads(response_scaler.content)  # Use pickle.loads here
+scaler1 = pickle.load(response_scaler.content)
 
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
