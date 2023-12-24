@@ -23,7 +23,7 @@ crop_mapping = dict(zip(num, names))
 
 crop_images = {
     'rice': 'path/to/rice_image.png',
-    'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
+    'maize': 'https://github.com/omarabdallah235/Crop-recommendation/blob/main/1280px-YellowCorn.jpg',
     'chickpea': 'path/to/chickpea_image.png',
     'kidneybeans': 'path/to/kidneybeans_image.png',
     'pigeonpeas': 'path/to/pigeonpeas_image.png',
