@@ -48,6 +48,7 @@ crop_images = {
     'coffee': 'path/to/coffee_image.png'
 }
 
+
 def main():
     st.title("Crop Recommendation App")
     st.markdown("<h3 style='text-align: justify; font-size: 20px;'>Data-driven recommendations for achieving optimal nutrient and environmental conditions to improve crop yield.</h3>", unsafe_allow_html=True)
