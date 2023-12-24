@@ -99,7 +99,7 @@ def predict_crop(user_inputs):
 background_css = f"""
     <style>
         body {{
-            background-image: url('local_image.jpg');  /* Replace with your local image file name */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg');  /* Replace with your local image file name */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
