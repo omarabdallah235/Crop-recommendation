@@ -53,30 +53,30 @@ def main():
         st.write(f"<p style='font-size: 24px; font-weight: bold;'>Predicted Crop: {predicted_crop}</p>", unsafe_allow_html=True)
         
         # Add images/icons for each crop
-crop_images = {
-    'rice': 'path/to/rice_image.png',
-    'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
-    'chickpea': 'path/to/chickpea_image.png',
-    'kidneybeans': 'path/to/kidneybeans_image.png',
-    'pigeonpeas': 'path/to/pigeonpeas_image.png',
-    'mothbeans': 'path/to/mothbeans_image.png',
-    'mungbean': 'path/to/mungbean_image.png',
-    'blackgram': 'path/to/blackgram_image.png',
-    'lentil': 'path/to/lentil_image.png',
-    'pomegranate': 'path/to/pomegranate_image.png',
-    'banana': 'path/to/banana_image.png',
-    'mango': 'path/to/mango_image.png',
-    'grapes': 'path/to/grapes_image.png',
-    'watermelon': 'path/to/watermelon_image.png',
-    'muskmelon': 'path/to/muskmelon_image.png',
-    'apple': 'path/to/apple_image.png',
-    'orange': 'path/to/orange_image.png',
-    'papaya': 'path/to/papaya_image.png',
-    'coconut': 'path/to/coconut_image.png',
-    'cotton': 'path/to/cotton_image.png',
-    'jute': 'path/to/jute_image.png',
-    'coffee': 'path/to/coffee_image.png'
-}
+         crop_images = {
+             'rice': 'path/to/rice_image.png',
+             'maize': 'https://en.wikipedia.org/wiki/Maize#/media/File:YellowCorn.jpg',
+             'chickpea': 'path/to/chickpea_image.png',
+             'kidneybeans': 'path/to/kidneybeans_image.png',
+             'pigeonpeas': 'path/to/pigeonpeas_image.png',
+             'mothbeans': 'path/to/mothbeans_image.png',
+             'mungbean': 'path/to/mungbean_image.png',
+             'blackgram': 'path/to/blackgram_image.png',
+             'lentil': 'path/to/lentil_image.png',
+             'pomegranate': 'path/to/pomegranate_image.png',
+             'banana': 'path/to/banana_image.png',
+             'mango': 'path/to/mango_image.png',
+             'grapes': 'path/to/grapes_image.png',
+             'watermelon': 'path/to/watermelon_image.png',
+             'muskmelon': 'path/to/muskmelon_image.png',
+             'apple': 'path/to/apple_image.png',
+             'orange': 'path/to/orange_image.png',
+             'papaya': 'path/to/papaya_image.png',
+             'coconut': 'path/to/coconut_image.png',
+             'cotton': 'path/to/cotton_image.png',
+             'jute': 'path/to/jute_image.png',
+             'coffee': 'path/to/coffee_image.png'
+         }
 
         if predicted_crop.lower() in crop_images:
             st.image(crop_images[predicted_crop.lower()], caption=f"Image for {predicted_crop}", use_column_width=True)
