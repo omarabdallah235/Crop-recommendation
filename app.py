@@ -13,20 +13,6 @@ scaler1_path = 'https://github.com/omarabdallah235/Crop-recommendation/raw/main/
 response_scaler = requests.get(scaler1_path)
 scaler1 = pickle.loads(response_scaler.content)  # Use pickle.loads here
 
-# Custom CSS for background with an image
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-   .sidebar .sidebar-content {
-        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Crop mapping
 names = ['rice', 'maize', 'chickpea', 'kidneybeans', 'pigeonpeas',
@@ -110,6 +96,17 @@ def predict_crop(user_inputs):
     predicted_crop = crop_mapping.get(predicted_crop_num, 'Unknown Crop')
 
     return predicted_crop
+background_css = f"""
+    <style>
+        body {{
+            background-image: url('local_image.jpg');  /* Replace with your local image file name */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+    </style>
+"""
+st.markdown(background_css, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
