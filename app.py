@@ -99,7 +99,7 @@ def predict_crop(user_inputs):
 background_css = f"""
     <style>
         body {{
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c5/Roasted_coffee_beans.jpg');  /* Replace with your image URL */
+            background-image: url('https://raw.githubusercontent.com/omarabdallah235/Crop-recommendation/main/1280px-YellowCorn.jpg');  /* Replace with your image URL */
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
