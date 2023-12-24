@@ -78,10 +78,11 @@ def main():
              'coffee': 'path/to/coffee_image.png'
          }
 
-        if predicted_crop.lower() in crop_images:
-            st.image(crop_images[predicted_crop.lower()], caption=f"Image for {predicted_crop}", use_column_width=True)
-        else:
-            st.warning("Image not available for the predicted crop.")
+         if predicted_crop in crop_images:
+             image_path = crop_images[predicted_crop]
+             st.image(image_path, caption=f'Predicted Crop: {predicted_crop}', width=35)
+         else:
+             st.warning('No image available for the predicted crop.')
 
 
 # Function for prediction logic
